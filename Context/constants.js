@@ -1,4 +1,4 @@
-import ethers from "ethers";
+import {ethers} from "ethers";
 import StakingDappABI from "./StakingDapp.json";
 import TokenICO from "./TokenICO.json";
 import CustomTokenABI from "./ERC20.json";

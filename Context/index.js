@@ -59,11 +59,14 @@ export const copyAddress = (text) => {
 export async function CONTRACT_DATA(address) {
     try {
         const contractObj = await contract();
+
+  
         const stakingTokenObj = await tokenContract();
+
 
         if (address) {
             const contractOwner = await contractObj.owner();
-            const contractAddress = await contractObj.address;
+            const contractAddress =  contractObj.address;
 
             const notifications = await contractObj.getNotifications();
 
@@ -336,9 +339,9 @@ export const addTokenToMetamask = async (token) => {
         const contract = await tokenContract();
 
         const tokenDecimals = await contract.decimals();
-        const tokenAddress = await contract.address;
+        const tokenAddress =  contract.address;
         const tokenSymbol = await contract.symbol();
-        const tokenImage = await TOKEN_LOGO;
+        const tokenImage =  TOKEN_LOGO;
 
         try {
             const wasAdded = await window.ethereum.request({
