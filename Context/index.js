@@ -59,7 +59,7 @@ export const copyAddress = (text) => {
 export async function CONTRACT_DATA(address) {
     try {
         const contractObj = await contract();
-
+console.log(contractObj);
   
         const stakingTokenObj = await tokenContract();
 
@@ -67,7 +67,7 @@ export async function CONTRACT_DATA(address) {
         if (address) {
             const contractOwner = await contractObj.owner();
             const contractAddress =  contractObj.address;
-
+console.log(contractAddress);
             const notifications = await contractObj.getNotifications();
 
             const _notificationsArray = await Promise.all(
@@ -90,6 +90,8 @@ export async function CONTRACT_DATA(address) {
             let poolInfoArray = [];
             const poolLength = await contractObj.poolCount();
             const length = poolLength.toNumber();
+
+            console.log(length);
             for (let i = 0; i < length; i++) {
                 const poolInfo = await contractObj.poolInfo(i);
 
@@ -113,7 +115,7 @@ export async function CONTRACT_DATA(address) {
                     lockUntil: CONVERT_TIMESTAMP_TO_READABLE(userInfo.lockUntil.toNumber()),
                     lastRewardAt: toEth(userInfo.lastRewardAt.toString()),
                 };
-
+console.log(pool);
                 poolInfoArray.push(pool);
             }
 
@@ -137,6 +139,7 @@ export async function CONTRACT_DATA(address) {
                 contractTokenBalance: depositToken.contractTokenBalance - totalDepositAmount,
             }
 
+            console.log(data);
             return data;
 
         }

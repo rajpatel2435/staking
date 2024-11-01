@@ -3,7 +3,7 @@ import React from "react";
 import AdminNav from "./AdminNav";
 import AdminHead from "./AdminHead";
 import AdminCard from "./AdminCard";
-import Token from "../Token";
+import Token from "./Token";
 import Investing from "./Investing";
 import Transfer from "./Transfer";
 import Pool from "./Pool";
@@ -36,7 +36,7 @@ const Admin = ({
                   <AdminCard
 
                     name={`Total Stake:`}
-                    value={`${poolDetails?.depositedAmount} ${poolDetails?.depositToken.symbol}`}
+                    value={`${poolDetails?.depositedAmount || "0"} ${poolDetails?.depositToken.symbol}`}
                   />
 
 
